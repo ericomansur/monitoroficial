@@ -1,10 +1,11 @@
 {
-  "name": "site1",
+  "name": "monitoroficial",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "node backend/server.js", 
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+   
   },
   "dependencies": {
     "axios": "^1.7.9",       
