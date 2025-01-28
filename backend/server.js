@@ -1,12 +1,16 @@
 import express from 'express';
 import fetch from 'node-fetch';
 import cors from 'cors';
+import path from 'path';
 
 const app = express();
-const port = 3001;
 
+// Usa a variável de ambiente PORT ou a porta 3001 como fallback
+const port = process.env.PORT || 3001;
+
+// Middleware
 app.use(cors());
-app.use(express.static('public'));
+app.use(express.static('public')); // Certifique-se de que seus arquivos estão em 'public' ou altere para 'build' se for uma SPA como React
 
 // Substitua pela sua chave real da API do CurrencyLayer
 const API_KEY = '18924cf02d693f50dc2b816aad4ede99'; // Sua chave da API do CurrencyLayer
@@ -14,7 +18,7 @@ const API_KEY = '18924cf02d693f50dc2b816aad4ede99'; // Sua chave da API do Curre
 // Endpoint para buscar a cotação de uma moeda
 app.get('/api/getRate', async (req, res) => {
     const currency = req.query.currency || 'BRL'; // Moeda a ser consultada
-    const API_URL = `http://api.currencylayer.com/live?access_key=${API_KEY}&currencies=${currency}&source=USD&format=1`;
+    const API_URL = `https://api.currencylayer.com/live?access_key=${API_KEY}&currencies=${currency}&source=USD&format=1`;
 
     console.log(`Buscando taxa para a moeda: ${currency}`);
     console.log(`Requisição para a URL: ${API_URL}`);
@@ -99,6 +103,11 @@ app.get('/api/getUSTreasuryRates', async (req, res) => {
         console.error("Erro ao buscar taxas dos títulos:", error.message);
         res.status(500).json({ error: "Erro ao buscar taxas dos títulos" });
     }
+});
+
+// Rota raiz para evitar o erro "Cannot GET /"
+app.get('/', (req, res) => {
+    res.send('Servidor funcionando corretamente!');
 });
 
 // Iniciar o servidor
