@@ -1,4 +1,4 @@
-/* Estilos principais */
+
 body {
     background-color: #1a1a2e;
     color: #e1e1e1;
@@ -10,7 +10,7 @@ body {
     margin: 0;
 }
 
-/* Card */
+
 .card {
     border-radius: 15px;
     background: #212d45;
@@ -22,13 +22,13 @@ body {
     transform: scale(1.05);
 }
 
-/* Texto e Títulos */
+
 h3, h4, h5 {
     color: #e0e0e0;
     font-weight: bold;
 }
 
-/* Botões */
+
 .btn-primary {
     background-color: #00c6ff;
     border-color: #00c6ff;
@@ -39,7 +39,6 @@ h3, h4, h5 {
     border-color: #00b0e1;
 }
 
-/* Campos de seleção */
 .form-control {
     background-color: #333;
     border-color: #444;
@@ -52,7 +51,6 @@ h3, h4, h5 {
     border-color: #00c6ff;
 }
 
-/* Histórico */
 .list-group-item {
     background-color: #242d3f;
     border: none;
@@ -65,7 +63,7 @@ h3, h4, h5 {
     transform: translateX(5px);
 }
 
-/* Adicionando animações de fade-in para os elementos */
+
 #currentRateValue, #brasiliaTime, #us30y, #us20y, #us10y, #us02y {
     opacity: 0;
     animation: fadeIn 1s forwards;
@@ -95,7 +93,7 @@ h3, h4, h5 {
     animation-delay: 3s;
 }
 
-/* Animação de fade-in */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -105,17 +103,16 @@ h3, h4, h5 {
     }
 }
 
-/* Adicionando animação para o dropdown */
+
 #currencySelect {
     transition: all 0.3s ease-in-out;
 }
 
 #currencySelect.open {
     transform: scale(1.1);
-    border-color: #007bff; /* Azul quando aberto */
+    border-color: #007bff; 
 }
 
-/* Adicionando cor ao histórico */
 #historyList .list-group-item {
     transition: background-color 0.3s ease;
 }
@@ -124,16 +121,16 @@ h3, h4, h5 {
     opacity: 0.8; /* Efeito de hover */
 }
 
-/* Estilos para a mudança de cor do valor da cotação */
+
 #currentRateValue.up {
-    color: green; /* Cor verde quando o valor sobe */
+    color: green; 
 }
 
 #currentRateValue.down {
-    color: red; /* Cor vermelha quando o valor cai */
+    color: red; 
 }
 
-/* Estilos para a seção de Títulos Públicos dos EUA */
+
 #us30y, #us20y, #us10y, #us02y {
     color: #e0e0e0;
     font-size: 1.2rem;
@@ -145,15 +142,15 @@ h3, h4, h5 {
 }
 
 #us30y span, #us20y span, #us10y span, #us02y span {
-    color: #f39c12; /* Cor de destaque para o título */
+    color: #f39c12; 
 }
 
 #us30y h4, #us20y h4, #us10y h4, #us02y h4 {
     font-size: 1.4rem;
-    color: #f1c40f; /* Cor de destaque para os valores */
+    color: #f1c40f; 
 }
 
-/* Para títulos com valores não disponíveis, podemos usar uma cor mais suave */
+
 #us30y h4.empty, #us20y h4.empty, #us10y h4.empty, #us02y h4.empty {
-    color: #95a5a6; /* Cor mais suave para valores não disponíveis */
+    color: #95a5a6; 
 }
