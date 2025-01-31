@@ -5,19 +5,18 @@ import path from 'path';
 
 const app = express();
 
-// Usa a variável de ambiente PORT ou a porta 3001 como fallback
 const port = process.env.PORT || 3001;
 
-// Middleware
+
 app.use(cors());
-app.use(express.static('public')); // Certifique-se de que seus arquivos estão em 'public' ou altere para 'build' se for uma SPA como React
+app.use(express.static('public')); 
 
-// Substitua pela sua chave real da API do CurrencyLayer
-const API_KEY = '18924cf02d693f50dc2b816aad4ede99'; // Sua chave da API do CurrencyLayer
 
-// Endpoint para buscar a cotação de uma moeda
+const API_KEY = '18924cf02d693f50dc2b816aad4ede99'; 
+
+
 app.get('/api/getRate', async (req, res) => {
-    const currency = req.query.currency || 'BRL'; // Moeda a ser consultada
+    const currency = req.query.currency || 'BRL'; 
     const API_URL = `https://api.currencylayer.com/live?access_key=${API_KEY}&currencies=${currency}&source=USD&format=1`;
 
     console.log(`Buscando taxa para a moeda: ${currency}`);
@@ -36,8 +35,8 @@ app.get('/api/getRate', async (req, res) => {
         console.log('Dados recebidos da API de Câmbio:', data);
 
         if (data.success && data.quotes) {
-            const quoteKey = `USD${currency}`; // Exemplo: "USDBRL"
-            const rate = data.quotes[quoteKey]; // Pegando a cotação de USD para a moeda solicitada
+            const quoteKey = `USD${currency}`; 
+            const rate = data.quotes[quoteKey]; 
 
             if (rate) {
                 res.json({ rate: rate });
@@ -55,8 +54,8 @@ app.get('/api/getRate', async (req, res) => {
     }
 });
 
-// Substitua pela sua chave da API FRED
-const FRED_API_KEY = '739a42f2e5865e0ced2706459ce56952'; // Sua chave da API FRED
+
+const FRED_API_KEY = '739a42f2e5865e0ced2706459ce56952'; 
 const FRED_API_URL = 'https://api.stlouisfed.org/fred/series/observations?api_key=' + FRED_API_KEY + '&file_type=json';
 
 app.get('/api/getUSTreasuryRates', async (req, res) => {
@@ -105,12 +104,12 @@ app.get('/api/getUSTreasuryRates', async (req, res) => {
     }
 });
 
-// Rota raiz para evitar o erro "Cannot GET /"
+
 app.get('/', (req, res) => {
     res.send('Servidor funcionando corretamente!');
 });
 
-// Iniciar o servidor
+
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
