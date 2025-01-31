@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const backendUrl = "https://monitoroficialback.onrender.com"; // Atualize com a URL real do backend
+    const backendUrl = "https://monitoroficialback.onrender.com"; 
 
     const currencySymbols = {
         BRL: 'R$', USD: '$', EUR: '€', GBP: '£', JPY: '¥', INR: '₹',
